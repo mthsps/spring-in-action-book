@@ -1,6 +1,5 @@
 package tacos.data;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import tacos.model.User;

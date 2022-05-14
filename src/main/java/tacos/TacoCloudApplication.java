@@ -1,18 +1,18 @@
 package tacos;
 
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import tacos.data.IngredientRepository;
 import tacos.data.TacoRepository;
 import tacos.data.UserRepository;
 import tacos.model.Ingredient;
 import tacos.model.Ingredient.Type;
 import tacos.model.Taco;
+import tacos.model.User;
 
 import java.util.Arrays;
 
@@ -23,6 +23,8 @@ public class TacoCloudApplication {
 		SpringApplication.run(TacoCloudApplication.class, args);
 	}
 
+
+	/*
 	@Bean
 	public CommandLineRunner dataLoader(IngredientRepository repo) {
 		return args -> {
@@ -38,7 +40,9 @@ public class TacoCloudApplication {
 			repo.save(new Ingredient("SRCR", "Sour Cream", Type.SAUCE));
 		};
 	}
+	 */
 
+	/*
 	@Bean
 	public CommandLineRunner dataLoader(
 			IngredientRepository repo,
@@ -84,6 +88,16 @@ public class TacoCloudApplication {
 					flourTortilla, cornTortilla, tomatoes,
 					lettuce, salsa));
 			tacoRepo.save(taco3);
+		};
+	}
+	 */
+
+	@Bean
+	public ApplicationRunner dataLoader(UserRepository repo, PasswordEncoder encoder) {
+
+		return args -> {
+			repo.save(new User("admin", encoder.encode("password"), "ROLE_ADMIN"));
+			repo.save(new User("tacochef", encoder.encode("password"), "ROLE_ADMIN"));
 		};
 	}
 }

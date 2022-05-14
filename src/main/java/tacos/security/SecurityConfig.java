@@ -1,4 +1,4 @@
-package tacos.security;
+/* package tacos.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -61,3 +61,6 @@ public class SecurityConfig {
     }
 
 }
+*/
+
+// Using SecurityConfig in the authorization package instead
