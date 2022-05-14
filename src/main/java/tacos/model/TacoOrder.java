@@ -2,6 +2,7 @@ package tacos.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Data
 @Entity
+@RestResource(rel="taco-orders", path="taco-orders")
 public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;

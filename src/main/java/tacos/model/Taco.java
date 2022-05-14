@@ -2,6 +2,7 @@ package tacos.model;
 
 import lombok.Data;
 import lombok.NonNull;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Data
 @Entity
+@RestResource(rel="tacos", path="tacos")
 public class Taco {
 
     @Id
